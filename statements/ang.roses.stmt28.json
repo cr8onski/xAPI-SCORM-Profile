@@ -1,0 +1,70 @@
+{
+  "verb": {
+    "id": "http://adlnet.gov/expapi/verbs/initialized",
+    "display": {
+      "en-US": "initialized"
+    }
+  },
+  "version": "1.0.0",
+  "timestamp": "2016-12-02T15:23:13.122004+00:00",
+  "object": {
+    "definition": {
+      "type": "http://adlnet.gov/expapi/activities/lesson",
+      "name": {
+        "en-US": "Rose Hybrids"
+      },
+      "description": {
+        "en-US": "Roses Job Aid - Hybrids"
+      }
+    },
+    "id": "http://adlnet.gov/jobaid/roses/hybrids",
+    "objectType": "Activity"
+  },
+  "actor": {
+    "mbox": "mailto:cr8onski@gmail.com",
+    "name": "Andy",
+    "objectType": "Agent"
+  },
+  "stored": "2016-12-02T15:23:13.122004+00:00",
+  "authority": {
+    "mbox": "mailto:xAPIRoses@adlnet.gov",
+    "name": "xAPIRoses",
+    "objectType": "Agent"
+  },
+  "context": {
+    "contextActivities": {
+      "category": [
+        {
+          "id": "https://w3id.org/xapi/scorm"
+        }
+      ],
+      "grouping": [
+        {
+          "definition": {
+            "type": "http://adlnet.gov/expapi/activities/course",
+            "name": {
+              "en-US": "Roses Job Aid xAPI Example"
+            },
+            "description": {
+              "en-US": "Roses Job Aid"
+            }
+          },
+          "id": "http://adlnet.gov/jobaid/roses"
+        },
+        {
+          "definition": {
+            "type": "http://adlnet.gov/expapi/activities/attempt",
+            "name": {
+              "en-US": "Attempt for Rose Hybrids"
+            },
+            "description": {
+              "en-US": "Attempt for Roses Job Aid - Hybrids"
+            }
+          },
+          "id": "http://adlnet.gov/jobaid/roses/hybrids?attemptId=805ef121-af01-42b0-8d6c-2ad4cffa9d1e"
+        }
+      ]
+    }
+  },
+  "id": "b3039879-cda3-4803-87e0-646962e1a50b"
+}

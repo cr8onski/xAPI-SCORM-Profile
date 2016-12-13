@@ -1,0 +1,74 @@
+{
+  "verb": {
+    "id": "http://adlnet.gov/expapi/verbs/terminated",
+    "display": {
+      "en-US": "terminated"
+    }
+  },
+  "version": "1.0.0",
+  "timestamp": "2016-12-02T15:31:58.594623+00:00",
+  "object": {
+    "definition": {
+      "type": "http://adlnet.gov/expapi/activities/lesson",
+      "name": {
+        "en-US": "Rose Symbolism"
+      },
+      "description": {
+        "en-US": "Roses Job Aid - Symbolism"
+      }
+    },
+    "id": "http://adlnet.gov/jobaid/roses/symbolism",
+    "objectType": "Activity"
+  },
+  "actor": {
+    "mbox": "mailto:cr8onski@gmail.com",
+    "name": "Andy",
+    "objectType": "Agent"
+  },
+  "stored": "2016-12-02T15:31:58.594623+00:00",
+  "result": {
+    "completion": true,
+    "success": true
+  },
+  "context": {
+    "contextActivities": {
+      "category": [
+        {
+          "id": "https://w3id.org/xapi/scorm"
+        }
+      ],
+      "grouping": [
+        {
+          "definition": {
+            "type": "http://adlnet.gov/expapi/activities/course",
+            "name": {
+              "en-US": "Roses Job Aid xAPI Example"
+            },
+            "description": {
+              "en-US": "Roses Job Aid"
+            }
+          },
+          "id": "http://adlnet.gov/jobaid/roses"
+        },
+        {
+          "definition": {
+            "type": "http://adlnet.gov/expapi/activities/attempt",
+            "name": {
+              "en-US": "Attempt for Rose Symbolism"
+            },
+            "description": {
+              "en-US": "Attempt for Roses Job Aid - Symbolism"
+            }
+          },
+          "id": "http://adlnet.gov/jobaid/roses/symbolism?attemptId=8cece7f6-eca1-45f8-9eaf-1655b9498f19"
+        }
+      ]
+    }
+  },
+  "id": "0254108a-cba2-4328-a393-875aaeb3debd",
+  "authority": {
+    "mbox": "mailto:xAPIRoses@adlnet.gov",
+    "name": "xAPIRoses",
+    "objectType": "Agent"
+  }
+}
