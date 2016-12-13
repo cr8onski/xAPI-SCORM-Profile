@@ -3,206 +3,57 @@
     "id": "https://w3id.org/xapi/scorm/attempt-state/scorm.profile.initializing.attempt.schema.json",
     "description": "Profile ID: https://w3id.org/xapi/scorm/initializing-an-attempt See: https://github.com/adlnet/xAPI-SCORM-Profile/blob/master/xapi-scorm-profile.md#initializing-an-attempt",
     "type": "object",
-    "additionalProperties": false,
-    "required": ["id", "actor", "verb", "object", "context", "timestamp"],
+    "required": ["actor", "verb", "object", "context", "timestamp"],
     "properties": {
-        "id": {
-            "type": "string",
-            "minLength": 36,
-            "maxLength": 36
-        },
+
         "actor": {
-            "description": "Set to the learner's agent object",
-            "type": "object",
-            "additionalProperties": false,
-            "required": ["Inverse Functional Identifier"],
-            "properties": {
-                "objectType": {"type": "string"},
-                "name": {"type": "string"},
-                "Inverse Functional Identifier": {
-                    "enum": ["mbox", "mbox_sha1sum", "openid", "account"]
-                }
-            }
+            "description": "Set to the learner's agent object"
         },
         "verb": {
             "description": "Set to the ADL Verb 'initialized'",
-            "type": "object",
-            "additionalProperties": false,
-            "required": ["id"],
             "properties": {
                 "id": {
-                    "type": "string",
-                    "format": "uri",
                     "enum": ["http://adlnet.gov/expapi/verbs/initialized"]
-                },
-                "display": {
-                    "type": "object"
                 }
             }
         },
         "object": {
             "description": "Set to the activity object for the SCO, using the SCO IRI as the activity's ID",
-            "type": "object",
-            "required": ["id"],
-            "additionalProperties": false,
+            "required": ["definition"],
             "properties": {
-                "objectType": {
-                    "type": "string",
-                    "enum": ["Activity"]
-                },
                 "id": {
-                    "description": "Set to the SCO IRI",
-                    "type": "string",
-                    "format": "uri"
+                    "description": "Set to the SCO IRI"
                 },
                 "definition": {
                     "type": "object",
-                    "additionalProperties": false,
-                    "require": ["type"],
+                    "required": ["type"],
                     "properties": {
-                        "name": {
-                            "type": "object",
-
-                        },
-                        "description": {
-
-                        },
                         "type": {
                             "description": "Set to 'http://adlnet.gov/expapi/activities/lesson'",
-
-                        },
-                        "moreInfo": {
-
-                        },
-                        "extensions": {
-
-                        },
-                        "interactionType": {
-
-                        },
-                        "correctResponsesPattern": {
-
-                        },
-                        "choices": {
-
-                        },
-                        "scale": {
-
-                        },
-                        "source": {
-
-                        },
-                        "target": {
-
-                        },
-                        "steps": {
-
+                            "enum": ["http://adlnet.gov/expapi/activities/lesson"]
                         }
                     }
                 }
             }
         },
         "context": {
-            "$schema": "http://json-schema.org/draft-04/schema#",
-            "type": "object",
+            "required": ["contextActivities"],
             "properties": {
-                "context": {
-                    "type": "object",
+                "contextActivities": {
+                    "required": ["grouping", "category"],
                     "properties": {
-                        "contextActivities": {
-                            "type": "object",
-                            "properties": {
-                                "category": {
-                                    "description": "Set to include the xAPI SCORM Profiles activity",
-                                    "type": "array",
-                                    "items": {
-                                        "type": "object",
-                                        "properties": {
-                                            "id": {
-                                                "type": "string",
-                                                "id": "http://jsonschema.net/context/contextActivities/category/0/id"
-                                            }
-                                        },
-                                        "id": "http://jsonschema.net/context/contextActivities/category/0",
-                                        "required": ["id"]
-                                    },
-                                    "id": "http://jsonschema.net/context/contextActivities/category"
-                                },
-                                "grouping": {
-                                    "type": "array",
-                                    "items": {
-                                        "type": "object",
-                                        "properties": {
-                                            "definition": {
-                                                "type": "object",
-                                                "properties": {
-                                                    "type": {
-                                                        "type": "string",
-                                                        "id": "http://jsonschema.net/context/contextActivities/grouping/1/definition/type"
-                                                    },
-                                                    "name": {
-                                                        "type": "object",
-                                                        "properties": {
-                                                            "en-US": {
-                                                                "type": "string",
-                                                                "id": "http://jsonschema.net/context/contextActivities/grouping/1/definition/name/en-US"
-                                                            }
-                                                        },
-                                                        "id": "http://jsonschema.net/context/contextActivities/grouping/1/definition/name"
-                                                    },
-                                                    "description": {
-                                                        "type": "object",
-                                                        "properties": {
-                                                            "en-US": {
-                                                                "type": "string",
-                                                                "id": "http://jsonschema.net/context/contextActivities/grouping/1/definition/description/en-US"
-                                                            }
-                                                        },
-                                                        "id": "http://jsonschema.net/context/contextActivities/grouping/1/definition/description"
-                                                    }
-                                                },
-                                                "id": "http://jsonschema.net/context/contextActivities/grouping/1/definition",
-                                                "required": ["type", "name", "description"]
-                                            },
-                                            "id": {
-                                                "type": "string",
-                                                "id": "http://jsonschema.net/context/contextActivities/grouping/1/id"
-                                            }
-                                        },
-                                        "id": "http://jsonschema.net/context/contextActivities/grouping/1",
-                                        "required": ["definition", "id"]
-                                    },
-                                    "id": "http://jsonschema.net/context/contextActivities/grouping"
-                                }
-                            },
-                            "id":   "http://jsonschema.net/context/contextActivities",
-                            "required": ["category", "grouping"]
+                        "grouping": {
+                            "description": "Set to include the attempt activity and the course activity"
+                        },
+                        "category": {
+                            "description": "Set to include the xAPI SCORM Profiles activity"
                         }
-                    },
-                    "id": "http://jsonschema.net/context",
-                    "required": ["contextActivities"]
+                    }
                 }
-            },
-            "id": "http://jsonschema.net",
-            "required": ["context"]
+            }
         },
         "timestamp": {
-
-        },
-        "result": {
-
-        },
-        "stored": {
-
-        },
-        "authority": {
-
-        },
-        "version": {
-
-        },
-        "attachments": {
-
+            "description": "Set to the time the attempt was initialized"
         }
     }
 }
