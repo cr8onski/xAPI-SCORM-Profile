@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/schema#",
-    "id": "https://w3id.org/xapi/scorm/attempt-state/scorm.profile.initializing.attempt.schema.json",
-    "description": "Profile ID: https://w3id.org/xapi/scorm/initializing-an-attempt See: https://github.com/adlnet/xAPI-SCORM-Profile/blob/master/xapi-scorm-profile.md#initializing-an-attempt",
+    "id": "https://w3id.org/xapi/scorm/attempt-state/scorm.profile.suspending.attempt.schema.json",
+    "description": "Profile ID: https://w3id.org/xapi/scorm/suspending-an-attempt See: https://github.com/adlnet/xAPI-SCORM-Profile/blob/master/xapi-scorm-profile.md#suspending-an-attempt",
     "type": "object",
     "required": ["actor", "verb", "object", "context", "timestamp"],
     "properties": {
@@ -9,10 +9,10 @@
             "description": "Set to the learner's agent object"
         },
         "verb": {
-            "description": "Set to the ADL Verb 'initialized'",
+            "description": "Set to the ADL Verb 'suspended'",
             "properties": {
                 "id": {
-                    "enum": ["http://adlnet.gov/expapi/verbs/initialized"]
+                    "enum": ["http://adlnet.gov/expapi/verbs/suspended"]
                 }
             }
         },
@@ -52,7 +52,21 @@
             }
         },
         "timestamp": {
-            "description": "Set to the time the attempt was initialized"
+            "description": "Set to the time the attempt was suspended"
+        },
+        "result": {
+            "description": "Set to the overall result for the SCO",
+            "properties": {
+                "success": {
+                    "description": "If success_status of the SCO is known, success is true if success_status is passed, and false if success_status is failed"
+                },
+                "completion": {
+                    "description": "If completion_status of the SCO is known, completion is true if completion_status is completed, and false if completion_status is incomplete"
+                },
+                "score": {
+                    "description": "If score of the SCO is known, use the appropriate score property to store SCORM score data model elements, such as score.scaled for cmi.score.scaled"
+                }
+            }
         }
     }
 }

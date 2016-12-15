@@ -5,7 +5,6 @@
     "type": "object",
     "required": ["actor", "object", "context", "timestamp"],
     "properties": {
-
         "actor": {
             "description": "Set to the learner's agent object"
         },
