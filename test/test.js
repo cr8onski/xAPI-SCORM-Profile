@@ -1,5 +1,5 @@
 const assert = require('assert');
-// const module = require('module');
+const mocha = require('mocha');
 
 describe('Array', function () {
     describe('#indexOf()', function () {
@@ -24,10 +24,10 @@ describe('Validate existing Schemas and Example Statements', function () {
             var info = path.parse(schemaname);
             // console.log(info);
             var stmtdir = path.join('statements', info.name);
-            console.log(stmtdir);
+            // console.log(stmtdir);
             try {
                 var stmtnames = fs.readdirSync(stmtdir);
-                console.log(stmtnames);
+                // console.log(stmtnames);
                 var schema = JSON.parse(fs.readFileSync(path.join(schemadir, schemaname), 'utf8'));
                 stmtnames.forEach(function(stmtname) {
                     it('validate ' + stmtname, function () {
@@ -40,7 +40,8 @@ describe('Validate existing Schemas and Example Statements', function () {
                     });
                 });
             } catch (e) {
-                return console.error(e);
+                // we could filter out dirs that don't have statements, or we can just try and ignore if there is not a corresponding directory
+                return; // console.error(e);
             }
         });
     });
